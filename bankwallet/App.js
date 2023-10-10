@@ -18,43 +18,35 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ color: "#fff" }}>Split Me</Text>
       <View style={styles.content}>
-        <View style={styles.inputButtonContainer}>
+        <Text style={{ color: "#FFF" }}>Split Me</Text>
+        {/* First Input */}
+        <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="$ Amount to Deposit"
+            placeholder="$ Uniswap V3 (WETH/DAI)"
             onChangeText={handleTextInputChange}
             value={textInputValue}
           />
-          <TouchableOpacity
-            style={styles.inputButton}
-            onPress={handleButtonPress}
-          >
-            <Text style={styles.inputButtonText}>Go</Text>
-          </TouchableOpacity>
         </View>
-        <View style={styles.buttonWrapper}>
-          <Button
-            theme="primary"
-            label="Uniswap Pool: WETH/DAI"
-            onPress={handleButtonPress}
+
+        {/* Second Input */}
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="$ Compound (DAI/sDAI)"
+            onChangeText={handleTextInputChange}
+            value={textInputValue}
           />
         </View>
-        <View style={styles.buttonWrapper}>
-          <Button
-            theme="primary"
-            label="Uniswap Pool: WETH/USDT"
-            onPress={handleButtonPress}
-          />
-        </View>
-        <View style={styles.buttonWrapper}>
-          <Button
-            theme="primary"
-            label="Compound"
-            onPress={handleButtonPress}
-          />
-        </View>
+
+        {/* Go Button */}
+        <TouchableOpacity
+          style={styles.inputButton}
+          onPress={handleButtonPress}
+        >
+          <Text style={styles.inputButtonText}>Split</Text>
+        </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
     </View>

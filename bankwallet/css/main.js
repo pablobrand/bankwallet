@@ -7,39 +7,35 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
   content: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-
-  inputButtonContainer: {
+  text: {
+    color: "#FFF",
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20, // Adjust the spacing between the input and buttons
+    marginBottom: 10,
   },
-
   input: {
-    flex: 1, // Take up available space
+    flex: 1,
     backgroundColor: "#fff",
     padding: 10,
     borderRadius: 8,
+    marginRight: 10,
   },
-
   inputButton: {
     backgroundColor: "#007BFF",
     padding: 10,
     borderRadius: 8,
-    marginLeft: 10, // Adjust the spacing between the input and button
   },
-
   inputButtonText: {
     color: "#fff",
     textAlign: "center",
-  },
-
-  buttonWrapper: {
-    marginVertical: 10,
   },
 });
