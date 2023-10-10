@@ -19,7 +19,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={{ color: "#FFF" }}>Split Me</Text>
+        <Text style={styles.title}>Split Me</Text>
         {/* First Input */}
         <View style={styles.inputContainer}>
           <TextInput
@@ -29,7 +29,6 @@ export default function App() {
             value={textInputValue}
           />
         </View>
-
         {/* Second Input */}
         <View style={styles.inputContainer}>
           <TextInput
@@ -39,7 +38,6 @@ export default function App() {
             value={textInputValue}
           />
         </View>
-
         {/* Go Button */}
         <TouchableOpacity
           style={styles.inputButton}
