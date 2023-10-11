@@ -4,6 +4,7 @@ import {
   WalletConnectModal,
   useWalletConnectModal,
 } from "@walletconnect/modal-react-native";
+import Button from "./components/Button";
 
 // Add in the useWalletConnectModal hook
 
@@ -40,7 +41,11 @@ export default function App() {
       <Pressable onPress={handleButtonPress} style={styles.pressableMargin}>
         <Text>{isConnected ? "Disconnect" : "Connect"}</Text>
       </Pressable>
-
+      {isConnected ? (
+        <Button label={"Uniswap Pool"} theme={"primary"} />
+      ) : (
+        <Text></Text>
+      )}
       <WalletConnectModal
         projectId={projectId}
         providerMetadata={providerMetadata}
