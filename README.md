@@ -4,6 +4,8 @@ Ethonline 2023 hackathon
 initial setup
 run
 ```bash
+npm install
+npm install -D react-native-dotenv
 npx expo install react-native-web@~0.19.6 @expo/webpack-config@^19.0.0
 ```
 
@@ -19,3 +21,6 @@ To run your project, navigate to the directory and run one of the following npm 
 - [Emulator setup](https://docs.expo.dev/workflow/android-studio-emulator/#set-up-a-virtual-device)
 
 [Running project in device](https://expo.dev/client)
+
+Other Info
+[Environment Variables](https://github.com/goatandsheep/react-native-dotenv)
