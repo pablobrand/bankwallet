@@ -27,15 +27,23 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 10,
     borderRadius: 8,
-    marginRight: 10,
+    margin: 10,
   },
   inputButton: {
     backgroundColor: "#007BFF",
     padding: 10,
     borderRadius: 8,
+    width: 100,
   },
   inputButtonText: {
     color: "#fff",
     textAlign: "center",
+    fontSize: 20,
+  },
+  title: {
+    color: "#FFF",
+    fontSize: 24,
+    marginBottom: 20,
+    padding: 10, // Added padding
   },
 });
