@@ -3,13 +3,33 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import Button from "./components/Button";
 import { useState } from "react";
 import { styles } from "./css/main";
+// import { onConnect } from './utils/contractHelper';
+import {
+  RecoilRoot,
+  useRecoilState,
+} from 'recoil';
+import { walletAddrAtom } from "./utils/recoil";
 
-export default function App() {
+export default function Root(){
+  return (
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  )
+}
+
+function App() {
   const [textInputValue, setTextInputValue] = useState("");
-
+  const [walletAddr,setWalletAddr] = useRecoilState(walletAddrAtom);
+  
   const handleTextInputChange = (text) => {
     setTextInputValue(text);
   };
+
+  const connectWallet = async()=>{
+    // let addr = await onConnect();
+		setWalletAddr(addr);
+  }
 
   const handleButtonPress = () => {
     // Handle button press with the input field value
@@ -47,6 +67,13 @@ export default function App() {
         >
           <Text style={styles.inputButtonText}>Split</Text>
         </TouchableOpacity>
+
+        {walletAddr.length===0 &&<TouchableOpacity
+          style={styles.inputButton}
+          onPress={connectWallet}
+        >
+          <Text style={styles.inputButtonText}>Connect Wallet</Text>
+        </TouchableOpacity>}
       </View>
       <StatusBar style="auto" />
     </View>

@@ -1,30 +1,14 @@
-import {
-	EthersAdapter,
-	SafeAccountConfig,
-	SafeFactory
-} from '@safe-global/protocol-kit'
+import {EthersAdapter,SafeAccountConfig,SafeFactory} from '@safe-global/protocol-kit'
+import {ethers} from 'ethers';
 
-import {
-	ethers
-} from 'ethers'
+let safeSdk = null;
 
-import {
-	useAccount,
-	useProvider,
-	useSigner
-} from 'wagmi';
-
-export const getSafeSdk = async () => {
-	const {
-		data: signer
-	} = useSigner();
-	const provider = useProvider();
-	const {
-		address
-	} = useAccount();
-
-	if (!address) {
+export const getSafeSdk = async (provider,signer,address) => {
+	if (!address || !signer) {
 		return;
+	}
+	if(safeSdk){
+		return safeSdk;
 	}
 
 	const ethAdapter = new EthersAdapter({
@@ -36,12 +20,12 @@ export const getSafeSdk = async () => {
 		ethAdapter
 	})
 
-	const safeAccountConfig: SafeAccountConfig = {
+	const safeAccountConfig:SafeAccountConfig = {
 		owners: [address],
 		threshold: 1,
 	}
 
-	const safeSdk = await safeFactory.deploySafe({
+	safeSdk = await safeFactory.deploySafe({
 		safeAccountConfig
 	})
 
